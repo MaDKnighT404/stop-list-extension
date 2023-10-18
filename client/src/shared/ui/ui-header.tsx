@@ -12,7 +12,7 @@ export function UiHeader({
   return (
     <header
       className={clsx(
-        "borber-b flex items-center justify-between border-b-slate-300 px-4 py-5",
+        "borber-b flex items-center justify-between border-b-slate-300 bg-white px-4 py-5",
         className,
       )}
     >
