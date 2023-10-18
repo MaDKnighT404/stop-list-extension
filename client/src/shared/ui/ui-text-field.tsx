@@ -26,7 +26,7 @@ export function UiTextField({
         id={id}
         className={clsx(
           inputProps?.className,
-          "rounded border border-slate-300 focus:border-teal-600 outline-none px-2 h-10",
+          "h-10 rounded border border-slate-300 px-2 outline-none focus:border-teal-600",
         )}
       />
       {!!error && <div className="text-rose-400">{error} </div>}

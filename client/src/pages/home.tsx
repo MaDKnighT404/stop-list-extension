@@ -1,15 +1,12 @@
-import { Inter } from "next/font/google";
 import { useQuery } from "@tanstack/react-query";
-import {
-  authControllerGetSessionInfo,
-  authControllerSignIn,
-  authControllerSignUp,
-} from "@/shared/api/generated";
+import { authControllerGetSessionInfo } from "@/shared/api/generated";
 import { UiButton } from "@/shared/ui/ui-button";
 import { UiTextField } from "@/shared/ui/ui-text-field";
 import { UiSelectField } from "@/shared/ui/ui-select-field";
-
-const inter = Inter({ subsets: ["latin"] });
+import { UiLink } from "@/shared/ui/ui-link";
+import { UiSpinner } from "@/shared/ui/ui-spinner";
+import { UiPageSpinner } from "@/shared/ui/ui-page-spinner";
+import { UiHeader } from "@/shared/ui/ui-header";
 
 export function HomePage() {
   const { data } = useQuery({
@@ -17,11 +14,8 @@ export function HomePage() {
     queryFn: () => authControllerGetSessionInfo(),
   });
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      {data?.email}
-
+    <main className={`min-h-screen`}>
+      <UiHeader right={<div>{data?.email}</div>} />
       <UiButton variant="primary">Primary</UiButton>
       <UiButton variant="secondary">Secondary</UiButton>
       <UiButton variant="outlined">Outlined</UiButton>
@@ -41,6 +35,8 @@ export function HomePage() {
         selectProps={{ placeholder: "Enter error..." }}
         options={[{ value: "1", label: "Hello" }]}
       />
+      <UiLink href={"/"}>Hello World!</UiLink>
+      <UiSpinner className="h-20 w-20 text-teal-600" />
     </main>
   );
 }
