@@ -1,4 +1,4 @@
-import { clsx } from "clsx";
+import clsx from "clsx";
 import { ButtonHTMLAttributes } from "react";
 
 type UiButtonVariant = "primary" | "secondary" | "outlined";
@@ -15,11 +15,11 @@ export function UiButton({ className, variant, ...props }: UiButtonProps) {
         "flex h-10 cursor-pointer items-center justify-center gap-2 rounded px-4",
         {
           primary:
-            "bg-teal-500 text-white shadow-teal-500/30 hover:bg-teal-600 disabled:opacity-50",
+            "bg-teal-500 text-white shadow shadow-teal-500/30 hover:bg-teal-600 disabled:opacity-50 ",
           secondary:
-            "bg-rose-500 text-white shadow-rose-500/30 hover:bg-rose-600 disabled:opacity-50",
+            "bg-rose-500 text-white shadow shadow-rose-500/30 hover:bg-rose-600 disabled:opacity-50 ",
           outlined:
-            "border border-slate-300  hover:bg-slate-200 disabled:opacity-50",
+            "border border-slate-300 hover:border-slate-500 disabled:opacity-50",
         }[variant],
       )}
     />
